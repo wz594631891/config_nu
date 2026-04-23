@@ -19,24 +19,24 @@
 # 设置zoxide
 source ~/.zoxide.nu
 # 夜煞云配置
-$env.http_proxy = "http://127.0.0.1:7892"
-$env.https_proxy = "http://127.0.0.1:7892"
+# 根据计算机名设置代理(家里和公司)
+if $env.COMPUTERNAME == "DESKTOP-J4NHO57" {
+    $env.http_proxy = "http://127.0.0.1:7892"
+    $env.https_proxy = "http://127.0.0.1:7892"
+} else {
+    $env.http_proxy = "http://100.82.155.75:7892"
+    $env.https_proxy = "http://100.82.155.75:7892"
+}
 # 设置 Nushell 内部编辑器
 $env.config.buffer_editor = "subl"
-
 # 设置系统全局环境变量
 $env.EDITOR = "subl"
 # 命令行重定向
-## powershell
-alias pwsh = powershell.exe
 ## codebuddy ide别名
-alias codebuddy-ide = codebuddy.exe
-alias cbi = codebuddy.exe
-## explorer别名
+alias codebuddy-ide-cn = `CodeBuddy CN.exe`
+alias cbic = `CodeBuddy CN.exe`
+## 资源管理器
 alias exp = explorer
-
-## typedown别名
-
 
 # 使用 Windows 标准的环境变量名
 if $env.PWD == ($env.USERPROFILE | path expand) or $env.PWD == "C:\\Windows\\system32" or $env.PWD == "C:\\Users\\Administrator" {
