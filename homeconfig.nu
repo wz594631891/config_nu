@@ -46,3 +46,9 @@ if $env.PWD == ($env.USERPROFILE | path expand) or $env.PWD == "C:\\Windows\\sys
 
 # 将 rm 的默认行为改为移动到回收站
 $env.config = ($env.config | upsert rm { always_trash: true })
+
+# 配置atuin
+## 使用 --disable-up-arrow 参数初始化(方向上键不唤醒)
+mkdir ~/.cache/atuin
+atuin init nu --disable-up-arrow | save -f ~/.cache/atuin/init.nu
+source ~/.cache/atuin/init.nu
