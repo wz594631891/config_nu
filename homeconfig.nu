@@ -42,3 +42,7 @@ alias exp = explorer
 if $env.PWD == ($env.USERPROFILE | path expand) or $env.PWD == "C:\\Windows\\system32" or $env.PWD == "C:\\Users\\Administrator" {
     cd `C:\Users\Administrator\Desktop`
 }
+
+
+# 将 rm 的默认行为改为移动到回收站
+$env.config = ($env.config | upsert rm { always_trash: true })
